@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript">
+    function verify(){
+        var name = document.getElementById("name");
+        var mail = document.getElementById("email");
+        var numb = document.getElementById("numb");
+        var gender = document.getElementsByName("gender");
+        var date = document.getElementById("dt");
+        var time = document.getElementById("tm");
+
+        var msg = new Array();
+        var flag = 1;
+        var message = " *       Following Details are Required       *\n";
+
+        if(name.value == "")
+    	{
+	    	msg[0] = "Name is Required";
+		    flag = 0;
+	    } else 
+        { 
+            msg[0] = ""; 
+        }
+        
+        if (email.value == "") {
+            msg[1] = "Email is Required";
+            flag = 0;
+        }else{
+            msg[1] = "";
+        }
+        if(numb.value.length < 10)
+    	{
+	    	msg[2] = "Number must be 10 digits";
+	    	flag = 0;
+	    } else 
+        { 
+            msg[2] = ""; 
+        }
+
+        if(gender[0].checked == false && gender[1].checked == false)
+	    {
+		    msg[3] = "Select Gender";
+		    flag = 0;
+    	} else { 
+            msg[3] = ""; 
+        }
+        if (dt.value == "") {
+            msg[4] = "Select Date";
+        } else {
+            msg[4] = "";
+        }
+        if (tm.value == "") {
+            msg[5]= "Select Time";
+        } else {
+            msg[5] = "";
+        }
+
+        
+
+
+        // flag = 0;
+        // alert(message);
+        if (flag == 0) {
+
+            for(var x=0; x<=5 ; x++)
+		    {
+			    if(msg[x] != "")
+			    {
+				    message += msg[x] + "\n";
+				    
+		    	}
+		    }
+
+            alert(message);
+            return false;
+        }
+        else{
+            return true;
+        }
+	
+	
+}
+</script>
+
+</head>
+<body> 
+    <section>
+        
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="box">
+            <div class="square" style="--i:0"></div>
+            <div class="square" style="--i:1"></div>
+            <div class="square" style="--i:2"></div>
+            <div class="square" style="--i:4"></div>
+            <div class="container">
+                <div class="form">
+                    <h2>Appointment Form</h2>
+                    <form method="post" action="" onSubmit="return verify()">
+                        <div class="inputbox">
+                            <input type="text" name="name" id="name" placeholder="Full Name">
+                        </div>
+                        <div class="inputbox">
+                            <input type="email" name="email" id="email" placeholder="Email">
+                        </div>
+                        <div class="inputbox">
+                            <input type="tel" name="numb" id="numb" placeholder="Phone no.">
+                        </div>
+                        <div class="ip">
+                            Gender : <br><br>
+                            <input type="radio" name="gender" value="Male" placeholder="Male"/> Male 
+        	                <input type="radio" name="gender" value="Female" placeholder="Female"/> Female
+                        </div>
+                        <div class="ip1">
+                            Date Of Appointment: <br><br>
+                            <input type="date" name="dt" id="dt" placeholder="Date Of Appointment" onfocus="(this.type = 'date')">
+                        </div>
+                        <div class="ip1">
+                            Time Of Appointment: <br><br>
+                            <input type="time" name="tm" id="tm" placeholder="Time Of Appointment" >
+                        </div>
+                        <div class="inputbox" >
+                            <input type="submit" value="Submit">
+                        </div>
+                        
+                        <p class="forget"><a href="https://web.whatsapp.com" target="_blank">Click Here</a> To Join Our WA group <br></p> 
+                    </form>
+
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </section> 
+    <div align="center"><marque>&#169 Copyright Reserved | Name:Aadesh Motghare | USN No: ET20065 | Department:Electronics and Telecommunication |</marque></div>
+</body>
+</html>
